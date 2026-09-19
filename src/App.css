@@ -1,0 +1,395 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #111111;
+}
+
+/* =========================
+   App Layout
+   ========================= */
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* =========================
+   Main Grid
+   ========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .app {
+    padding: 32px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+}
+
+/* =========================
+   Panels
+   ========================= */
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.panel h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 20px;
+  letter-spacing: -0.2px;
+}
+
+.panel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 24px 0 14px;
+}
+
+/* =========================
+   Form
+   ========================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* =========================
+   Inputs
+   ========================= */
+
+input,
+textarea {
+  width: 100%;
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  padding: 11px 13px;
+  font-size: 14px;
+  font-family: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+textarea {
+  min-height: 105px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #9ca3af;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.12);
+}
+
+/* =========================
+   Submit Button
+   ========================= */
+
+button[type="submit"] {
+  width: 100%;
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #4338ca;
+  box-shadow: 0 3px 8px rgba(79, 70, 229, 0.2);
+}
+
+button[type="submit"]:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button[type="submit"]:disabled {
+  background: #a5a6f6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   Error Message
+   ========================= */
+
+.error-text {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* =========================
+   Dashboard Summary
+   ========================= */
+
+.total {
+  color: #4b5563;
+  font-size: 14px;
+  margin: 0 0 16px;
+}
+
+.counts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.count-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #111111;
+  padding: 7px 8px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.count-row:hover {
+  background: #f9fafb;
+}
+
+.count-row .cat-name {
+  flex: 1;
+}
+
+.count-row .cat-count {
+  font-weight: 700;
+  color: #111111;
+  min-width: 20px;
+  text-align: right;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* =========================
+   Empty State
+   ========================= */
+
+.empty {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Recent Ticket
+   ========================= */
+
+.ticket-card {
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #4f46e5;
+  background: #f9fafb;
+  padding: 16px 18px;
+  border-radius: 7px;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ticket-card:hover {
+  border-color: #d1d5db;
+  border-left-color: #4f46e5;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   Ticket Header
+   ========================= */
+
+.ticket-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 9px;
+  flex-wrap: wrap;
+}
+
+.ticket-top strong {
+  color: #111111;
+  font-size: 14px;
+}
+
+/* =========================
+   Ticket Badge
+   ========================= */
+
+.badge {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Priority
+   ========================= */
+
+.priority {
+  font-size: 11px;
+  font-weight: 700;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   Ticket Subject
+   ========================= */
+
+.ticket-subject {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 5px 0 12px;
+  line-height: 1.4;
+}
+
+/* =========================
+   Ticket Details
+   ========================= */
+
+.ticket-summary,
+.ticket-team,
+.ticket-action {
+  font-size: 14px;
+  color: #374151;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* =========================
+   History
+   ========================= */
+
+.history {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4b5563;
+  padding: 6px 0;
+}
+
+/* =========================
+   Accessibility
+   ========================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* =========================
+   Reduced Motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
